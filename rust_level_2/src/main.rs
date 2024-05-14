@@ -12,6 +12,10 @@ fn main() {
     // Borrowing
     borrowing_immutable_refs();
     borrowing_mutable_refs();
+
+    // Dereferencing
+    println!("Dereferencing");
+    dereferencing();
 }
 
 /* 
@@ -68,4 +72,17 @@ fn borrowing_mutable_refs(){
     // let s2 = &mut s;
     // println!("{:?}, {:?}, {:?}", s, s1, s2); // this will give an error because we can't have multiple mutable references
     println!("{:?}", s1);
+}
+
+// Dereferencing
+fn dereferencing(){
+    let mut s = 1;
+    let s1 = &mut s;
+    let mut s2 = *s1;
+    println!("s1 : {:?}, s2 : {:?}", s1, s2);
+    *s1=444;
+
+    println!("s1 after {:?}", s1);
+    println!("s after {:?}", s);
+
 }
