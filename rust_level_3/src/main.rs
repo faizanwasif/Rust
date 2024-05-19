@@ -18,6 +18,25 @@ fn main() {
     my_car.refuel(10);
 
     my_car.print_details();
+
+
+    // Enums
+    let up = Direction::Up;
+    let down = Direction::Down;
+    let left = Direction::Left;
+    let right = Direction::Right;
+
+    // Enums with values
+    let up = Movement::Up(10);
+    let down = Movement::Down(20);
+    let left = Movement::Left(30);
+    let right = Movement::Right(40);
+
+    let up:u32 = match up{
+        Movement::Up(value) => 10,
+        _ => 0
+    }; 
+    println!("{}", up);
 }
 
 // Structs
@@ -39,4 +58,20 @@ impl Vechicle{
     fn refuel(&mut self, fuel: u32){
         self.fuel += fuel;
     }
+}
+
+// Enums
+enum Direction{
+    Up,
+    Down,
+    Left,
+    Right
+}
+
+// Enums with values
+enum Movement{
+    Up(u32),
+    Down(u32),
+    Left(u32),
+    Right(u32)
 }
